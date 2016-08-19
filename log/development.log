@@ -3577,3 +3577,1405 @@ Processing by TasksController#index as HTML
 Completed 200 OK in 93ms (Views: 85.0ms | ActiveRecord: 1.4ms)
 
 
+Started GET "/" for ::1 at 2016-08-19 14:16:08 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.haml within layouts/application
+  Rendered pages/home.html.haml within layouts/application (6.7ms)
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (38.3ms)
+Completed 200 OK in 427ms (Views: 406.1ms | ActiveRecord: 7.7ms)
+
+
+Started GET "/tasks" for ::1 at 2016-08-19 14:16:12 -0700
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tasks/index.html.haml within layouts/application
+  Rendered tasks/index.html.haml within layouts/application (2.9ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+Completed 200 OK in 168ms (Views: 129.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/tasks" for ::1 at 2016-08-19 14:17:14 -0700
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tasks/index.html.haml within layouts/application
+  [1m[36mTask Load (0.7ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "to_do"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (2.7ms)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "doing"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (0.6ms)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "done"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (0.8ms)
+  Rendered tasks/index.html.haml within layouts/application (36.2ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+Completed 200 OK in 131ms (Views: 120.0ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/tasks" for ::1 at 2016-08-19 14:27:22 -0700
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tasks/index.html.haml within layouts/application
+  [1m[36mTask Load (1.8ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "to_do"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (15.4ms)
+  Rendered tasks/index.html.haml within layouts/application (24.7ms)
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 3.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `created' for #<Task:0x007fd06d90a908>
+Did you mean?  created_at):
+    1: %div.panel.panel-info
+    2:   %div.panel-heading
+    3:     = link_to edit_task_path(task) do
+    4:       Created #{time_ago_in_words(task.created.at)} ago
+    5:   %div.panel-body
+    6:     = task.content
+    7:   %div.panel-footer.text-center
+  
+app/views/tasks/_task.html.haml:4:in `block in _app_views_tasks__task_html_haml__1394149805778623308_70266583978420'
+app/views/tasks/_task.html.haml:3:in `_app_views_tasks__task_html_haml__1394149805778623308_70266583978420'
+app/views/tasks/index.html.haml:6:in `_app_views_tasks_index_html_haml___1961494410172877171_70266573803460'
+  Rendering /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (7.0ms)
+  Rendering /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendering /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (96.9ms)
+Started GET "/tasks" for ::1 at 2016-08-19 14:27:56 -0700
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tasks/index.html.haml within layouts/application
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "to_do"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (9.6ms)
+  Rendered tasks/index.html.haml within layouts/application (14.3ms)
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `created' for #<Task:0x007fd069a78118>
+Did you mean?  created_at):
+    1: %div.panel.panel-info
+    2:   %div.panel-heading
+    3:     = link_to edit_task_path(task) do
+    4:       "Created #{time_ago_in_words(task.created.at)} ago"
+    5:   %div.panel-body
+    6:     = task.content
+    7:   %div.panel-footer.text-center
+  
+app/views/tasks/_task.html.haml:4:in `block in _app_views_tasks__task_html_haml__1394149805778623308_70266602305040'
+app/views/tasks/_task.html.haml:3:in `_app_views_tasks__task_html_haml__1394149805778623308_70266602305040'
+app/views/tasks/index.html.haml:6:in `_app_views_tasks_index_html_haml___1961494410172877171_70266602835480'
+  Rendering /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.0ms)
+  Rendering /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendering /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (82.5ms)
+Started GET "/tasks" for ::1 at 2016-08-19 14:28:26 -0700
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tasks/index.html.haml within layouts/application
+  [1m[36mTask Load (0.9ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "to_do"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (9.8ms)
+  Rendered tasks/index.html.haml within layouts/application (14.8ms)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 2.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `created' for #<Task:0x007fd06fda2590>
+Did you mean?  created_at):
+    1: %div.panel.panel-info
+    2:   %div.panel-heading
+    3:     = link_to edit_task_path(task) do
+    4:       - "Created #{time_ago_in_words(task.created.at)} ago"
+    5:   %div.panel-body
+    6:     = task.content
+    7:   %div.panel-footer.text-center
+  
+app/views/tasks/_task.html.haml:4:in `block in _app_views_tasks__task_html_haml__1394149805778623308_70266603243440'
+app/views/tasks/_task.html.haml:3:in `_app_views_tasks__task_html_haml__1394149805778623308_70266603243440'
+app/views/tasks/index.html.haml:6:in `_app_views_tasks_index_html_haml___1961494410172877171_70266603725920'
+  Rendering /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.3ms)
+  Rendering /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendering /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (88.1ms)
+Started GET "/tasks" for ::1 at 2016-08-19 14:28:33 -0700
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tasks/index.html.haml within layouts/application
+  [1m[36mTask Load (0.9ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "to_do"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (11.0ms)
+  Rendered tasks/index.html.haml within layouts/application (16.5ms)
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 2.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `created' for #<Task:0x007fd06c7151a8>
+Did you mean?  created_at):
+    1: %div.panel.panel-info
+    2:   %div.panel-heading
+    3:     = link_to edit_task_path(task) do
+    4:       = "Created #{time_ago_in_words(task.created.at)} ago"
+    5:   %div.panel-body
+    6:     = task.content
+    7:   %div.panel-footer.text-center
+  
+app/views/tasks/_task.html.haml:4:in `block in _app_views_tasks__task_html_haml__1394149805778623308_70266574613380'
+app/views/tasks/_task.html.haml:3:in `_app_views_tasks__task_html_haml__1394149805778623308_70266574613380'
+app/views/tasks/index.html.haml:6:in `_app_views_tasks_index_html_haml___1961494410172877171_70266574842340'
+  Rendering /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.5ms)
+  Rendering /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendering /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (91.7ms)
+Started GET "/tasks" for ::1 at 2016-08-19 14:28:43 -0700
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tasks/index.html.haml within layouts/application
+  [1m[36mTask Load (0.8ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "to_do"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (7.8ms)
+  Rendered tasks/index.html.haml within layouts/application (12.8ms)
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 2.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `stat' for #<Task:0x007fd06fa4ad70>
+Did you mean?  state):
+     9:       - if task.state == 'doing'
+    10:         %td= link_to "<i class='fa fa-arrow-left></i>'".html_safe, change_task_path(task, state: "to_do"), class: "btn btn-info btn-md btn-block", method: :put
+    11:         %td= link_to "<i class='fa fa-arrow-right></i>'".html_safe, change_task_path(task, state: "done"), class: "btn btn-info btn-md btn-block", method: :put
+    12:       - elsif task.stat == 'to_do'
+    13:         %td= link_to "<i class='fa fa-arrow-right></i>'", change_task_path(task, state: "doing"), class: "btn btn-info btn-md btn-block", method: :put
+    14:       - else
+    15:         %td= link_to "<i class='fa fa-arrow-left></i>'", change_task_path(task, state: "doing"), class: "btn btn-info btn-md btn-block", method: :put
+  
+app/views/tasks/_task.html.haml:12:in `_app_views_tasks__task_html_haml__1394149805778623308_70266601479020'
+app/views/tasks/index.html.haml:6:in `_app_views_tasks_index_html_haml___1961494410172877171_70266601801620'
+  Rendering /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.7ms)
+  Rendering /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
+  Rendering /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (83.3ms)
+Started GET "/tasks" for ::1 at 2016-08-19 14:28:52 -0700
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tasks/index.html.haml within layouts/application
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "to_do"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (2.7ms)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "doing"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (0.9ms)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "done"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (0.7ms)
+  Rendered tasks/index.html.haml within layouts/application (14.9ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+Completed 200 OK in 143ms (Views: 137.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/tasks" for ::1 at 2016-08-19 14:28:54 -0700
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tasks/index.html.haml within layouts/application
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "to_do"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (3.7ms)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "doing"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (0.8ms)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "done"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (0.6ms)
+  Rendered tasks/index.html.haml within layouts/application (13.6ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+Completed 200 OK in 91ms (Views: 85.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/tasks" for ::1 at 2016-08-19 14:29:03 -0700
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tasks/index.html.haml within layouts/application
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "to_do"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (2.8ms)
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "doing"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (0.8ms)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "done"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (0.6ms)
+  Rendered tasks/index.html.haml within layouts/application (13.1ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+Completed 200 OK in 92ms (Views: 85.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/tasks" for ::1 at 2016-08-19 14:29:34 -0700
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tasks/index.html.haml within layouts/application
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "to_do"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (4.8ms)
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "doing"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (0.9ms)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "done"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (0.7ms)
+  Rendered tasks/index.html.haml within layouts/application (17.2ms)
+  Rendered layouts/_header.html.erb (1.7ms)
+Completed 200 OK in 155ms (Views: 148.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/tasks" for ::1 at 2016-08-19 14:30:20 -0700
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tasks/index.html.haml within layouts/application
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "to_do"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (2.8ms)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "doing"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (0.7ms)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "done"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (1.2ms)
+  Rendered tasks/index.html.haml within layouts/application (13.6ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 99ms (Views: 93.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/tasks/6/edit" for ::1 at 2016-08-19 14:30:25 -0700
+Processing by TasksController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering tasks/edit.html.haml within layouts/application
+  Rendered tasks/_form.html.haml (73.8ms)
+  Rendered tasks/edit.html.haml within layouts/application (77.6ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+Completed 200 OK in 163ms (Views: 140.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/tasks" for ::1 at 2016-08-19 14:30:28 -0700
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tasks/index.html.haml within layouts/application
+  [1m[36mTask Load (1.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "to_do"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (4.5ms)
+  [1m[36mTask Load (0.7ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "doing"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (1.2ms)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "done"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (1.1ms)
+  Rendered tasks/index.html.haml within layouts/application (27.5ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+Completed 200 OK in 116ms (Views: 107.9ms | ActiveRecord: 2.7ms)
+
+
+Started PUT "/tasks/6/change?state=doing" for ::1 at 2016-08-19 14:30:29 -0700
+Processing by TasksController#change as HTML
+  Parameters: {"authenticity_token"=>"xHrPriV9oR+VW9FFN2F6TmDD7JjAX/W9wB2/g6byx7m3TPHX5HrZc5G9MC3gK2SUitQAEVCrqK87SZtC/qTRyQ==", "state"=>"doing", "id"=>"6"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "tasks" SET "state" = $1, "updated_at" = $2 WHERE "tasks"."id" = $3[0m  [["state", "doing"], ["updated_at", 2016-08-19 21:30:29 UTC], ["id", 6]]
+  [1m[35m (11.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/tasks
+Completed 302 Found in 24ms (ActiveRecord: 12.8ms)
+
+
+Started GET "/tasks" for ::1 at 2016-08-19 14:30:29 -0700
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tasks/index.html.haml within layouts/application
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "to_do"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "doing"]]
+  Rendered collection of tasks/_task.html.haml [2 times] (3.7ms)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "done"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (0.7ms)
+  Rendered tasks/index.html.haml within layouts/application (11.8ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+Completed 200 OK in 79ms (Views: 73.5ms | ActiveRecord: 1.3ms)
+
+
+Started PUT "/tasks/3/change?state=to_do" for ::1 at 2016-08-19 14:30:31 -0700
+Processing by TasksController#change as HTML
+  Parameters: {"authenticity_token"=>"K9FwYw6l0c9ecd6R291XAlSYr9Di+JMYeyvc2dchL9dY504az6Kpo1qXP/kMl0nYvo9DWXIMzgqAf/gYj3c5pw==", "state"=>"to_do", "id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "tasks" SET "state" = $1, "updated_at" = $2 WHERE "tasks"."id" = $3[0m  [["state", "to_do"], ["updated_at", 2016-08-19 21:30:31 UTC], ["id", 3]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/tasks
+Completed 302 Found in 8ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/tasks" for ::1 at 2016-08-19 14:30:31 -0700
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tasks/index.html.haml within layouts/application
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "to_do"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (3.5ms)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "doing"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (0.7ms)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "done"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (0.6ms)
+  Rendered tasks/index.html.haml within layouts/application (13.7ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+Completed 200 OK in 88ms (Views: 82.7ms | ActiveRecord: 1.4ms)
+
+
+Started PUT "/tasks/6/change?state=to_do" for ::1 at 2016-08-19 14:30:34 -0700
+Processing by TasksController#change as HTML
+  Parameters: {"authenticity_token"=>"2NRDhyftlPUEuz2dNzVHtKnxAwihdekSYh+vf4KtfpSr4n3+5ursmQBd3PXgf1luQ+bvgTGBtACZS4u+2vto5A==", "state"=>"to_do", "id"=>"6"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "tasks" SET "state" = $1, "updated_at" = $2 WHERE "tasks"."id" = $3[0m  [["state", "to_do"], ["updated_at", 2016-08-19 21:30:34 UTC], ["id", 6]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/tasks
+Completed 302 Found in 8ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/tasks" for ::1 at 2016-08-19 14:30:34 -0700
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tasks/index.html.haml within layouts/application
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "to_do"]]
+  Rendered collection of tasks/_task.html.haml [2 times] (3.1ms)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "doing"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "done"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (1.0ms)
+  Rendered tasks/index.html.haml within layouts/application (12.7ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+Completed 200 OK in 77ms (Views: 72.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/tasks" for ::1 at 2016-08-19 14:32:51 -0700
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tasks/index.html.haml within layouts/application
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "to_do"]]
+  Rendered collection of tasks/_task.html.haml [2 times] (4.6ms)
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "doing"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "done"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (0.8ms)
+  Rendered tasks/index.html.haml within layouts/application (13.8ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+Completed 200 OK in 117ms (Views: 108.5ms | ActiveRecord: 1.6ms)
+
+
+Started DELETE "/tasks/3" for ::1 at 2016-08-19 14:32:53 -0700
+Processing by TasksController#destroy as HTML
+  Parameters: {"authenticity_token"=>"R56N23EN82O9+J9S5cXSKdL5r9ofWkyVmy/p+44m9sQ0qLOisAqLD7kefjoyj8zzOO5DU4+uEYdge8061nDgtA==", "id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."id" = $1[0m  [["id", 3]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/tasks
+Completed 302 Found in 6ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/tasks" for ::1 at 2016-08-19 14:32:54 -0700
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tasks/index.html.haml within layouts/application
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "to_do"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (4.3ms)
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "doing"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "done"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (0.9ms)
+  Rendered tasks/index.html.haml within layouts/application (14.5ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 92ms (Views: 85.7ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/tasks" for ::1 at 2016-08-19 14:36:46 -0700
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tasks/index.html.haml within layouts/application
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "to_do"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (3.5ms)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "doing"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "done"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (0.8ms)
+  Rendered tasks/index.html.haml within layouts/application (13.4ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+Completed 200 OK in 105ms (Views: 96.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/tasks/new" for ::1 at 2016-08-19 14:36:48 -0700
+Processing by TasksController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tasks/new.html.haml within layouts/application
+  Rendered tasks/_form.html.haml (7.0ms)
+  Rendered tasks/new.html.haml within layouts/application (12.9ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 92ms (Views: 86.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/tasks/new" for ::1 at 2016-08-19 14:37:39 -0700
+Processing by TasksController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tasks/new.html.haml within layouts/application
+  Rendered tasks/_form.html.haml (4.3ms)
+  Rendered tasks/new.html.haml within layouts/application (7.4ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+Completed 200 OK in 98ms (Views: 93.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/tasks" for ::1 at 2016-08-19 14:37:41 -0700
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tasks/index.html.haml within layouts/application
+  [1m[36mTask Load (3.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "to_do"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (3.2ms)
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "doing"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  [1m[36mTask Load (0.7ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "done"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (1.0ms)
+  Rendered tasks/index.html.haml within layouts/application (20.2ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+Completed 200 OK in 110ms (Views: 98.5ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/tasks/6/edit" for ::1 at 2016-08-19 14:37:43 -0700
+Processing by TasksController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering tasks/edit.html.haml within layouts/application
+  Rendered tasks/_form.html.haml (5.4ms)
+  Rendered tasks/edit.html.haml within layouts/application (9.7ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+Completed 200 OK in 95ms (Views: 89.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/tasks" for ::1 at 2016-08-19 14:37:46 -0700
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tasks/index.html.haml within layouts/application
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "to_do"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (7.1ms)
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "doing"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  [1m[36mTask Load (0.7ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "done"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (1.4ms)
+  Rendered tasks/index.html.haml within layouts/application (24.8ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+Completed 200 OK in 122ms (Views: 111.5ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/" for ::1 at 2016-08-19 14:39:02 -0700
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/tasks
+Completed 302 Found in 14ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/tasks" for ::1 at 2016-08-19 14:39:02 -0700
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tasks/index.html.haml within layouts/application
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "to_do"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (3.1ms)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "doing"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "done"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (0.7ms)
+  Rendered tasks/index.html.haml within layouts/application (18.8ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+Completed 200 OK in 112ms (Views: 95.9ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/" for ::1 at 2016-08-19 14:39:04 -0700
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/tasks
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/tasks" for ::1 at 2016-08-19 14:39:04 -0700
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tasks/index.html.haml within layouts/application
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "to_do"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (4.7ms)
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "doing"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "done"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (1.1ms)
+  Rendered tasks/index.html.haml within layouts/application (16.3ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+Completed 200 OK in 95ms (Views: 86.8ms | ActiveRecord: 1.7ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2016-08-19 14:39:05 -0700
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"oqzinEhrXVJM+1CFm+BKQYRb3+uzc8CKaw4IExRMBvPRmtzliWwlPkgdse1MqlSbbkwzYiOHnZiQWizSTBoQgw=="}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 8ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2016-08-19 14:39:05 -0700
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.haml within layouts/application
+  Rendered pages/home.html.haml within layouts/application (1.6ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+Completed 200 OK in 77ms (Views: 70.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2016-08-19 14:39:08 -0700
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (22.9ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+Completed 200 OK in 97ms (Views: 94.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2016-08-19 14:39:12 -0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Wm84QeXdcDcluYil2VClrmZPCt7NYFCBVlULdf05ZwvzVDVsVLZ1e4qMQWtepJzOWT/zEQKAEVA6/jZuBRdT+A==", "user"=>{"email"=>"antoinebungert7@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "antoinebungert7@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["current_sign_in_at", 2016-08-19 21:39:13 UTC], ["last_sign_in_at", 2016-08-19 17:26:33 UTC], ["sign_in_count", 7], ["updated_at", 2016-08-19 21:39:13 UTC], ["id", 1]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 197ms (ActiveRecord: 3.9ms)
+
+
+Started GET "/" for ::1 at 2016-08-19 14:39:13 -0700
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/tasks
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/tasks" for ::1 at 2016-08-19 14:39:13 -0700
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tasks/index.html.haml within layouts/application
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "to_do"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (2.7ms)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "doing"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "done"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (0.6ms)
+  Rendered tasks/index.html.haml within layouts/application (9.9ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 77ms (Views: 72.3ms | ActiveRecord: 1.3ms)
+
+
+Started PUT "/tasks/6/change?state=doing" for ::1 at 2016-08-19 14:39:17 -0700
+Processing by TasksController#change as HTML
+  Parameters: {"authenticity_token"=>"PvHJAEhHSRdYIW7UP33vnrHiSEKxQvPkAdvn/TkzsrWmZpHdJhfKZCb43ogaP3SzF3W7+HEXWUa+TztTMLXfbg==", "state"=>"doing", "id"=>"6"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[33mUPDATE "tasks" SET "state" = $1, "updated_at" = $2 WHERE "tasks"."id" = $3[0m  [["state", "doing"], ["updated_at", 2016-08-19 21:39:17 UTC], ["id", 6]]
+  [1m[35m (6.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/tasks
+Completed 302 Found in 17ms (ActiveRecord: 8.3ms)
+
+
+Started GET "/tasks" for ::1 at 2016-08-19 14:39:17 -0700
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tasks/index.html.haml within layouts/application
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "to_do"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "doing"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (14.3ms)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "done"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (0.9ms)
+  Rendered tasks/index.html.haml within layouts/application (22.9ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+Completed 200 OK in 101ms (Views: 96.1ms | ActiveRecord: 1.3ms)
+
+
+Started PUT "/tasks/6/change?state=to_do" for ::1 at 2016-08-19 14:39:19 -0700
+Processing by TasksController#change as HTML
+  Parameters: {"authenticity_token"=>"l/IEiyo6AY76PbObYF02DUw7Wmuw/h/CnKODjIG/6dUPZVxWRGqC/YTkA8dFH60g6qyp0XCrtWAjN18iiDmEDg==", "state"=>"to_do", "id"=>"6"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "tasks" SET "state" = $1, "updated_at" = $2 WHERE "tasks"."id" = $3[0m  [["state", "to_do"], ["updated_at", 2016-08-19 21:39:19 UTC], ["id", 6]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/tasks
+Completed 302 Found in 8ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/tasks" for ::1 at 2016-08-19 14:39:19 -0700
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tasks/index.html.haml within layouts/application
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "to_do"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (4.0ms)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "doing"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "done"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (1.1ms)
+  Rendered tasks/index.html.haml within layouts/application (14.7ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+Completed 200 OK in 89ms (Views: 83.3ms | ActiveRecord: 1.3ms)
+
+
+Started DELETE "/tasks/6" for ::1 at 2016-08-19 14:39:20 -0700
+Processing by TasksController#destroy as HTML
+  Parameters: {"authenticity_token"=>"HQC3t8BQxK4ehOzGIR7xUPcv9DL9l2CphQt6w6fbQ6qFl+9qrgBH3WBdXJoEXGp9UbgHiD3Cygs6n6Ztrl0ucQ==", "id"=>"6"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."id" = $1[0m  [["id", 6]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/tasks
+Completed 302 Found in 7ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/tasks" for ::1 at 2016-08-19 14:39:20 -0700
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tasks/index.html.haml within layouts/application
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "to_do"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "doing"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "done"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (3.6ms)
+  Rendered tasks/index.html.haml within layouts/application (10.5ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+Completed 200 OK in 93ms (Views: 87.3ms | ActiveRecord: 1.4ms)
+
+
+Started DELETE "/tasks/7" for ::1 at 2016-08-19 14:39:23 -0700
+Processing by TasksController#destroy as HTML
+  Parameters: {"authenticity_token"=>"wLyDxbUClzuSfU6tebWmbKyLaG2K1KmYOPW6fmEBxKlYK9sY21IUSOyk/vFc9z1BChyb10qBAzqHYWbQaIepcg==", "id"=>"7"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."id" = $1[0m  [["id", 7]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/tasks
+Completed 302 Found in 6ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/tasks" for ::1 at 2016-08-19 14:39:23 -0700
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tasks/index.html.haml within layouts/application
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "to_do"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "doing"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "done"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered tasks/index.html.haml within layouts/application (4.6ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+Completed 200 OK in 80ms (Views: 74.7ms | ActiveRecord: 1.1ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3564499682640449595);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddContentHtmlToTasks (20160819214233)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.2ms)[0m  [1m[35mALTER TABLE "tasks" ADD "content_html" text[0m
+  [1m[35mSQL (9.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160819214233"]]
+  [1m[35m (12.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3564499682640449595)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'tasks'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3564499682640449595);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddContentHtmlToTasks (20160819214233)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "tasks" DROP "content_html"[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20160819214233"]]
+  [1m[35m (12.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3564499682640449595)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'tasks'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+Started GET "/tasks" for ::1 at 2016-08-19 14:53:04 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tasks/index.html.haml within layouts/application
+  [1m[36mTask Load (0.7ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "to_do"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "doing"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "done"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered tasks/index.html.haml within layouts/application (12.2ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+Completed 200 OK in 443ms (Views: 379.8ms | ActiveRecord: 11.2ms)
+
+
+Started GET "/tasks" for ::1 at 2016-08-19 14:53:07 -0700
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tasks/index.html.haml within layouts/application
+  [1m[36mTask Load (1.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "to_do"]]
+  Rendered collection of templates [0 times] (0.1ms)
+  [1m[36mTask Load (0.8ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "doing"]]
+  Rendered collection of templates [0 times] (0.1ms)
+  [1m[36mTask Load (1.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "done"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered tasks/index.html.haml within layouts/application (16.2ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+Completed 200 OK in 117ms (Views: 108.7ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/tasks/new" for ::1 at 2016-08-19 14:53:08 -0700
+Processing by TasksController#new as HTML
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tasks/new.html.haml within layouts/application
+  Rendered tasks/_form.html.haml (97.6ms)
+  Rendered tasks/new.html.haml within layouts/application (102.7ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+Completed 200 OK in 234ms (Views: 211.0ms | ActiveRecord: 6.7ms)
+
+
+Started POST "/tasks" for ::1 at 2016-08-19 14:53:12 -0700
+Processing by TasksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"npJ3kwgEvtUBfOVzMsDEx3UUkEwMWjlfunCCQJDf22bbEONJ0BQZOCo//cl1RzbH9scf4vS5RoR7X7zlbB01nw==", "task"=>{"content"=>"Hello"}, "commit"=>"Create Task"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (7.1ms)[0m  [1m[32mINSERT INTO "tasks" ("content", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "Hello"], ["created_at", 2016-08-19 21:53:12 UTC], ["updated_at", 2016-08-19 21:53:12 UTC], ["user_id", 1]]
+  [1m[35m (12.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/tasks/8
+Completed 302 Found in 51ms (ActiveRecord: 19.9ms)
+
+
+Started GET "/tasks/8" for ::1 at 2016-08-19 14:53:12 -0700
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering tasks/show.html.haml within layouts/application
+  Rendered tasks/show.html.haml within layouts/application (2.3ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+Completed 200 OK in 95ms (Views: 81.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/tasks" for ::1 at 2016-08-19 14:53:14 -0700
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tasks/index.html.haml within layouts/application
+  [1m[36mTask Load (0.8ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "to_do"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (98.8ms)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "doing"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "done"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered tasks/index.html.haml within layouts/application (110.2ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+Completed 200 OK in 201ms (Views: 192.0ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/tasks/new" for ::1 at 2016-08-19 14:53:18 -0700
+Processing by TasksController#new as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tasks/new.html.haml within layouts/application
+  Rendered tasks/_form.html.haml (6.1ms)
+  Rendered tasks/new.html.haml within layouts/application (11.3ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+Completed 200 OK in 93ms (Views: 86.7ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/tasks" for ::1 at 2016-08-19 14:53:36 -0700
+Processing by TasksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Jb9f2RCdecHBU4stj9kymWKysmX6rpstVpzgujT9zs9gPcsDyI3eLOoQk5fIXsCZ4WE9ywJN5PaXs94fyD8gNg==", "task"=>{"content"=>"https://www.youtube.com/watch?v=8OqaHiwTJQU"}, "commit"=>"Create Task"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "tasks" ("content", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "https://www.youtube.com/watch?v=8OqaHiwTJQU"], ["created_at", 2016-08-19 21:53:36 UTC], ["updated_at", 2016-08-19 21:53:36 UTC], ["user_id", 1]]
+  [1m[35m (6.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/tasks/9
+Completed 302 Found in 15ms (ActiveRecord: 8.0ms)
+
+
+Started GET "/tasks/9" for ::1 at 2016-08-19 14:53:36 -0700
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  Rendering tasks/show.html.haml within layouts/application
+  Rendered tasks/show.html.haml within layouts/application (1.9ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+Completed 200 OK in 104ms (Views: 94.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/tasks" for ::1 at 2016-08-19 14:53:38 -0700
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tasks/index.html.haml within layouts/application
+  [1m[36mTask Load (1.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "to_do"]]
+  Rendered collection of tasks/_task.html.haml [2 times] (8.5ms)
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "doing"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  [1m[36mTask Load (0.6ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "done"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered tasks/index.html.haml within layouts/application (22.0ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+Completed 200 OK in 120ms (Views: 109.6ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/tasks" for ::1 at 2016-08-19 14:56:12 -0700
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tasks/index.html.haml within layouts/application
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "to_do"]]
+  Rendered collection of tasks/_task.html.haml [2 times] (4.0ms)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "doing"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "done"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered tasks/index.html.haml within layouts/application (10.2ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+Completed 200 OK in 100ms (Views: 94.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/tasks" for ::1 at 2016-08-19 14:56:14 -0700
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tasks/index.html.haml within layouts/application
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "to_do"]]
+  Rendered collection of tasks/_task.html.haml [2 times] (3.5ms)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "doing"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "done"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered tasks/index.html.haml within layouts/application (12.3ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+Completed 200 OK in 87ms (Views: 81.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/tasks" for ::1 at 2016-08-19 14:56:53 -0700
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tasks/index.html.haml within layouts/application
+  [1m[36mTask Load (0.9ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "to_do"]]
+  Rendered collection of tasks/_task.html.haml [2 times] (7.1ms)
+  Rendered tasks/index.html.haml within layouts/application (12.7ms)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 2.2ms)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 1, expected 0)):
+    4:       Created #{time_ago_in_words(task.created_at)} ago
+    5:     = link_to "x", task_path(task), method: :delete
+    6:   %div.panel-body
+    7:     - link_filter = AutoHtml::HtmlEscape.new(target:'_blank')
+    8:     = link_filter.call("#{task.content}")
+    9:   %div.panel-footer.text-center
+   10:     %div.btn-group.btn-group-justified
+  
+app/views/tasks/_task.html.haml:7:in `initialize'
+app/views/tasks/_task.html.haml:7:in `new'
+app/views/tasks/_task.html.haml:7:in `_app_views_tasks__task_html_haml__1896776597005125720_70145765308840'
+app/views/tasks/index.html.haml:6:in `_app_views_tasks_index_html_haml___3064662609820408551_70145706885760'
+  Rendering /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.1ms)
+  Rendering /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendering /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (92.2ms)
+Started GET "/tasks" for ::1 at 2016-08-19 14:57:05 -0700
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tasks/index.html.haml within layouts/application
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "to_do"]]
+  Rendered collection of tasks/_task.html.haml [2 times] (5.2ms)
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "doing"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "done"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered tasks/index.html.haml within layouts/application (14.1ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+Completed 200 OK in 117ms (Views: 106.5ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/tasks" for ::1 at 2016-08-19 14:57:17 -0700
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tasks/index.html.haml within layouts/application
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "to_do"]]
+  Rendered collection of tasks/_task.html.haml [2 times] (3.6ms)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "doing"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "done"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered tasks/index.html.haml within layouts/application (9.6ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 94ms (Views: 88.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/tasks" for ::1 at 2016-08-19 14:58:18 -0700
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tasks/index.html.haml within layouts/application
+  [1m[36mTask Load (0.8ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "to_do"]]
+  Rendered collection of tasks/_task.html.haml [2 times] (21.6ms)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "doing"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "done"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered tasks/index.html.haml within layouts/application (29.3ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+Completed 200 OK in 124ms (Views: 115.1ms | ActiveRecord: 2.7ms)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3564499682640449595);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddContentHtmlToTasks (20160819220251)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.7ms)[0m  [1m[35mALTER TABLE "tasks" ADD "content_html" text[0m
+  [1m[35mSQL (7.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160819220251"]]
+  [1m[35m (6.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3564499682640449595)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'tasks'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+Started GET "/tasks" for ::1 at 2016-08-19 15:06:27 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 92ms (ActiveRecord: 15.6ms)
+
+
+  
+NoMethodError (undefined method `auto_html_for' for #<Class:0x007f7fde4333b0>):
+  
+app/models/task.rb:4:in `<class:Task>'
+app/models/task.rb:1:in `<top (required)>'
+app/controllers/tasks_controller.rb:6:in `index'
+  Rendering /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.3ms)
+  Rendering /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendering /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (100.8ms)
+Started GET "/tasks" for ::1 at 2016-08-19 15:08:28 -0700
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 4.4ms)
+
+
+  
+TypeError (wrong argument type String (expected Module)):
+  
+app/models/task.rb:3:in `include'
+app/models/task.rb:3:in `<class:Task>'
+app/models/task.rb:1:in `<top (required)>'
+app/controllers/tasks_controller.rb:6:in `index'
+  Rendering /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.4ms)
+  Rendering /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendering /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (78.2ms)
+Started GET "/tasks" for ::1 at 2016-08-19 15:08:39 -0700
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 57ms (ActiveRecord: 6.8ms)
+
+
+  
+NameError (undefined local variable or method `auto_html' for #<Class:0x007f7fdc91d968>):
+  
+app/models/task.rb:3:in `<class:Task>'
+app/models/task.rb:1:in `<top (required)>'
+app/controllers/tasks_controller.rb:6:in `index'
+  Rendering /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.3ms)
+  Rendering /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendering /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (89.5ms)
+Started GET "/tasks" for ::1 at 2016-08-19 15:09:57 -0700
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 49ms (ActiveRecord: 3.7ms)
+
+
+  
+NoMethodError (undefined method `auto_html_for' for #<Class:0x007f7fdb284940>):
+  
+app/models/task.rb:5:in `<class:Task>'
+app/models/task.rb:1:in `<top (required)>'
+app/controllers/tasks_controller.rb:6:in `index'
+  Rendering /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.5ms)
+  Rendering /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendering /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (85.4ms)
+Started GET "/tasks" for ::1 at 2016-08-19 15:10:27 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 86ms (ActiveRecord: 9.5ms)
+
+
+  
+NoMethodError (undefined method `auto_html_for' for #<Class:0x007fc7b7233148>):
+  
+app/models/task.rb:5:in `<class:Task>'
+app/models/task.rb:1:in `<top (required)>'
+app/controllers/tasks_controller.rb:6:in `index'
+  Rendering /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.5ms)
+  Rendering /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendering /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (91.5ms)
+Started GET "/tasks" for ::1 at 2016-08-19 15:11:40 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: #table_exists? currently checks both tables and views. This behavior is deprecated and will be changed with Rails 5.1 to only check tables. Use #data_source_exists? instead. (called from <class:Task> at /Users/antoinebungert/Development/rails/my_trello/app/models/task.rb:5)
+  Rendering tasks/index.html.haml within layouts/application
+  [1m[36mTask Load (0.7ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "to_do"]]
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "doing"]]
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "done"]]
+  Rendered collection of tasks/_task.html.haml [2 times] (161.4ms)
+  Rendered tasks/index.html.haml within layouts/application (183.5ms)
+Completed 500 Internal Server Error in 263ms (ActiveRecord: 8.9ms)
+
+
+  
+ActionView::Template::Error (undefined method `row' for #<#<Class:0x007ff5dfe9a868>:0x007ff5dfeb83b8>
+Did you mean?  raw):
+    4:       Created #{time_ago_in_words(task.created_at)} ago
+    5:     = link_to "x", task_path(task), method: :delete
+    6:   %div.panel-body
+    7:     = row(task.content_html)
+    8:   %div.panel-footer.text-center
+    9:     %div.btn-group.btn-group-justified
+   10:       - if task.state == 'doing'
+  
+app/views/tasks/_task.html.haml:7:in `_app_views_tasks__task_html_haml___825064434830634079_70346973898160'
+app/views/tasks/index.html.haml:6:in `_app_views_tasks_index_html_haml__4103970443959274602_70347000175700'
+  Rendering /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (9.5ms)
+  Rendering /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendering /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/antoinebungert/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (94.5ms)
+Started GET "/tasks" for ::1 at 2016-08-19 15:11:57 -0700
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tasks/index.html.haml within layouts/application
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "to_do"]]
+  Rendered collection of tasks/_task.html.haml [2 times] (3.8ms)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "doing"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "done"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered tasks/index.html.haml within layouts/application (10.3ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+Completed 200 OK in 404ms (Views: 397.6ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/tasks" for ::1 at 2016-08-19 15:12:01 -0700
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tasks/index.html.haml within layouts/application
+  [1m[36mTask Load (0.7ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "to_do"]]
+  Rendered collection of tasks/_task.html.haml [2 times] (3.9ms)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "doing"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "done"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered tasks/index.html.haml within layouts/application (11.5ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+Completed 200 OK in 93ms (Views: 85.6ms | ActiveRecord: 2.4ms)
+
+
+Started DELETE "/tasks/8" for ::1 at 2016-08-19 15:12:04 -0700
+Processing by TasksController#destroy as HTML
+  Parameters: {"authenticity_token"=>"9BbHDIvUtRNpklPEe4iFfQvBRNCQqA4tt63kqDDyA9dsgZ/R5YQ2YBdL45heyh5QrVa3alD9pI8IOTgGOXRuDA==", "id"=>"8"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."id" = $1[0m  [["id", 8]]
+  [1m[35m (11.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/tasks
+Completed 302 Found in 19ms (ActiveRecord: 13.3ms)
+
+
+Started GET "/tasks" for ::1 at 2016-08-19 15:12:04 -0700
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tasks/index.html.haml within layouts/application
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "to_do"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (3.0ms)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "doing"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "done"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered tasks/index.html.haml within layouts/application (9.9ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+Completed 200 OK in 94ms (Views: 88.4ms | ActiveRecord: 1.4ms)
+
+
+Started DELETE "/tasks/9" for ::1 at 2016-08-19 15:12:05 -0700
+Processing by TasksController#destroy as HTML
+  Parameters: {"authenticity_token"=>"x3MFVpoKsDYIW76innmUFNnBh2kpkI0Ds+OTQxg/2q5f5F2L9FozRXaCDv67Ow85f1Z00+nFJ6EMd0/tEbm3dQ==", "id"=>"9"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."id" = $1[0m  [["id", 9]]
+  [1m[35m (6.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/tasks
+Completed 302 Found in 14ms (ActiveRecord: 8.4ms)
+
+
+Started GET "/tasks" for ::1 at 2016-08-19 15:12:05 -0700
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tasks/index.html.haml within layouts/application
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "to_do"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "doing"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "done"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered tasks/index.html.haml within layouts/application (4.9ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+Completed 200 OK in 91ms (Views: 85.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/tasks/new" for ::1 at 2016-08-19 15:12:06 -0700
+Processing by TasksController#new as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tasks/new.html.haml within layouts/application
+  Rendered tasks/_form.html.haml (79.0ms)
+  Rendered tasks/new.html.haml within layouts/application (84.9ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+Completed 200 OK in 171ms (Views: 162.2ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/tasks" for ::1 at 2016-08-19 15:12:35 -0700
+Processing by TasksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ne/L4ECy0WgUzVTNPC/Buxm+av+Dl16Ax7IJLSXz1drYbV86mKJ2hT+OTHd7qDO7mm3lUXt0IVsGnTeI2TE7Iw==", "task"=>{"content"=>"Check this video\r\nhttps://www.youtube.com/watch?v=35Rpa9E61nU"}, "commit"=>"Create Task"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (6.5ms)[0m  [1m[32mINSERT INTO "tasks" ("content", "created_at", "updated_at", "user_id", "content_html") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "Check this video\r\nhttps://www.youtube.com/watch?v=35Rpa9E61nU"], ["created_at", 2016-08-19 22:12:35 UTC], ["updated_at", 2016-08-19 22:12:35 UTC], ["user_id", 1], ["content_html", "<p>Check this video\n<br /><div class=\"video youtube\"><iframe width=\"100%\" height=\"250\" src=\"//www.youtube.com/embed/35Rpa9E61nU\" frameborder=\"0\" allowfullscreen></iframe></div></p>"]]
+  [1m[35m (6.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/tasks/10
+Completed 302 Found in 116ms (ActiveRecord: 13.6ms)
+
+
+Started GET "/tasks/10" for ::1 at 2016-08-19 15:12:35 -0700
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering tasks/show.html.haml within layouts/application
+  Rendered tasks/show.html.haml within layouts/application (1.7ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+Completed 200 OK in 91ms (Views: 85.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/tasks" for ::1 at 2016-08-19 15:12:39 -0700
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tasks/index.html.haml within layouts/application
+  [1m[36mTask Load (1.6ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "to_do"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (3.7ms)
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "doing"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "done"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered tasks/index.html.haml within layouts/application (17.0ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+Completed 200 OK in 106ms (Views: 95.8ms | ActiveRecord: 3.0ms)
+
+
+Started PUT "/tasks/10/change?state=doing" for ::1 at 2016-08-19 15:12:46 -0700
+Processing by TasksController#change as HTML
+  Parameters: {"authenticity_token"=>"1G/z9+uNhz+ysk9zDlwWP6iO+AtJnV1mbAFWqrpgfuVM+Ksqhd0ETMxr/y8rHo0SDhkLsYnI98TTlYoEs+YTPg==", "state"=>"doing", "id"=>"10"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "tasks" SET "state" = $1, "updated_at" = $2 WHERE "tasks"."id" = $3[0m  [["state", "doing"], ["updated_at", 2016-08-19 22:12:46 UTC], ["id", 10]]
+  [1m[35m (6.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/tasks
+Completed 302 Found in 14ms (ActiveRecord: 7.8ms)
+
+
+Started GET "/tasks" for ::1 at 2016-08-19 15:12:46 -0700
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tasks/index.html.haml within layouts/application
+  [1m[36mTask Load (0.9ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "to_do"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "doing"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (3.4ms)
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "done"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered tasks/index.html.haml within layouts/application (10.5ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+Completed 200 OK in 80ms (Views: 73.8ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/tasks" for ::1 at 2016-08-19 15:14:53 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: #table_exists? currently checks both tables and views. This behavior is deprecated and will be changed with Rails 5.1 to only check tables. Use #data_source_exists? instead. (called from <class:Task> at /Users/antoinebungert/Development/rails/my_trello/app/models/task.rb:8)
+  Rendering tasks/index.html.haml within layouts/application
+  [1m[36mTask Load (0.8ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "to_do"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "doing"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (31.5ms)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "done"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered tasks/index.html.haml within layouts/application (63.8ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+Completed 200 OK in 514ms (Views: 436.6ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/tasks/new" for ::1 at 2016-08-19 15:14:56 -0700
+Processing by TasksController#new as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tasks/new.html.haml within layouts/application
+  Rendered tasks/_form.html.haml (107.7ms)
+  Rendered tasks/new.html.haml within layouts/application (112.1ms)
+  Rendered layouts/_header.html.erb (5.9ms)
+Completed 200 OK in 200ms (Views: 194.3ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/tasks" for ::1 at 2016-08-19 15:14:57 -0700
+Processing by TasksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"U8giuNHryfM56R/Ax/E2WVg1Ism1pbmtl62qqDaOdhQWSrZiCftuHhKqB3qAdsRZ2+atZ01GxnZWgpQNykyY7Q==", "task"=>{"content"=>""}, "commit"=>"Create Task"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  Rendering tasks/new.html.haml within layouts/application
+  Rendered tasks/_form.html.haml (5.3ms)
+  Rendered tasks/new.html.haml within layouts/application (8.9ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 150ms (Views: 132.3ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/tasks" for ::1 at 2016-08-19 15:15:03 -0700
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tasks/index.html.haml within layouts/application
+  [1m[36mTask Load (1.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "to_do"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "doing"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (15.9ms)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "done"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered tasks/index.html.haml within layouts/application (33.8ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+Completed 200 OK in 172ms (Views: 156.9ms | ActiveRecord: 4.2ms)
+
+

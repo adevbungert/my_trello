@@ -1,11 +1,16 @@
-%tr
-  %td= task.content
-  %td= task.state
-  %td= link_to 'Show', task
-  %td= link_to 'Edit', edit_task_path(task)
-  %td= link_to 'Destroy', task, :method => :delete, :data => { :confirm => 'Are you sure?' }
-  - if task.state == 'doing'
-    %td= link_to 'Mark as To Do', change_task_path(task, state: "to_do"), method: :put
-    %td= link_to 'Mark as Done', change_task_path(task, state: "done"), method: :put
-  - else
-    %td= link_to 'Mark as Doing', change_task_path(task, state: "doing"), method: :put
+%div.panel.panel-info
+  %div.panel-heading
+    = link_to edit_task_path(task) do
+      Created #{time_ago_in_words(task.created_at)} ago
+    = link_to "x", task_path(task), method: :delete
+  %div.panel-body
+    = raw(task.content_html)
+  %div.panel-footer.text-center
+    %div.btn-group.btn-group-justified
+      - if task.state == 'doing'
+        %td= link_to "<i class='fa fa-arrow-left'></i>".html_safe, change_task_path(task, state: "to_do"), class: "btn btn-info btn-md btn-block", method: :put
+        %td= link_to "<i class='fa fa-arrow-right'></i>".html_safe, change_task_path(task, state: "done"), class: "btn btn-info btn-md btn-block", method: :put
+      - elsif task.state == 'to_do'
+        %td= link_to "<i class='fa fa-arrow-right'></i>".html_safe, change_task_path(task, state: "doing"), class: "btn btn-info btn-md btn-block", method: :put
+      - else
+        %td= link_to "<i class='fa fa-arrow-left'></i>".html_safe, change_task_path(task, state: "doing"), class: "btn btn-info btn-md btn-block", method: :put

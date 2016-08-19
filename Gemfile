@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 
 
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
-gem 'sqlite3'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -19,11 +18,17 @@ gem 'simple_form'
 
 gem 'devise'
 
+gem 'auto_html', '~>1.6.4'
+
 gem 'pg'
 
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
+
+group :production do
+  gem 'rails_12factor'
+end
 
 group :development, :test do
   gem 'byebug', platform: :mri

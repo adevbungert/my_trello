@@ -12,3 +12,9 @@ default: &default
 development:
   <<: *default
   database: my_trello
+
+production:
+  <<: *default
+  database: todoism
+  encoding: utf-8
+  min_messages : warning
