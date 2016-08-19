@@ -1,0 +1,45 @@
+%h1 To Do
+
+%table.table
+  %thead
+    %tr
+      %th Content
+      %th State
+      %th{:colspan => 4}
+
+  %tbody
+    = render @to_do
+
+
+%br
+
+%h1 Doing
+
+%table.table
+  %thead
+    %tr
+      %th Content
+      %th State
+      %th{:colspan => 5}
+
+  %tbody
+    = render @doing
+
+
+%br
+
+%h1 Done
+
+%table.table
+  %thead
+    %tr
+      %th Content
+      %th State
+      %th{:colspan => 3}
+
+  %tbody
+    = render @done
+
+%br
+
+= link_to 'New Task', new_task_path
