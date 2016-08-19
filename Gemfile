@@ -10,6 +10,8 @@ gem 'coffee-rails', '~> 4.2'
 gem "haml"
 gem "haml-rails", "~> 0.9"
 
+gem "figaro"
+
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
 gem "font-awesome-rails"
