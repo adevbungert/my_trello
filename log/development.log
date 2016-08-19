@@ -4979,3 +4979,123 @@ Processing by TasksController#index as HTML
 Completed 200 OK in 172ms (Views: 156.9ms | ActiveRecord: 4.2ms)
 
 
+Started GET "/" for ::1 at 2016-08-19 15:38:39 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/tasks
+Completed 302 Found in 30ms (ActiveRecord: 4.6ms)
+
+
+Started GET "/tasks" for ::1 at 2016-08-19 15:38:39 -0700
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: #table_exists? currently checks both tables and views. This behavior is deprecated and will be changed with Rails 5.1 to only check tables. Use #data_source_exists? instead. (called from <class:Task> at /Users/antoinebungert/Development/rails/my_trello/app/models/task.rb:8)
+  Rendering tasks/index.html.haml within layouts/application
+  [1m[36mTask Load (0.7ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "to_do"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "doing"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (20.1ms)
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "done"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered tasks/index.html.haml within layouts/application (50.2ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+Completed 200 OK in 545ms (Views: 507.0ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/" for ::1 at 2016-08-19 15:38:40 -0700
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/tasks
+Completed 302 Found in 4ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/tasks" for ::1 at 2016-08-19 15:38:40 -0700
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tasks/index.html.haml within layouts/application
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "to_do"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "doing"]]
+  Rendered collection of tasks/_task.html.haml [1 times] (7.1ms)
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "done"]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered tasks/index.html.haml within layouts/application (17.1ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+Completed 200 OK in 146ms (Views: 137.5ms | ActiveRecord: 1.8ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2016-08-19 15:38:43 -0700
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"CrtsMBxhw+KjlnUgwa9PMVH5ZO8bPPkHcxpXFa5jj4eSLDTtcjFAkd1PxXzk7dQc926XVdtpU6XMjou7p+XiXA=="}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 9ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2016-08-19 15:38:43 -0700
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.haml within layouts/application
+  Rendered pages/home.html.haml within layouts/application (1.7ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+Completed 200 OK in 95ms (Views: 89.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-08-19 15:39:00 -0700
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.haml within layouts/application
+  Rendered pages/home.html.haml within layouts/application (1.6ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+Completed 200 OK in 127ms (Views: 123.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for ::1 at 2016-08-19 15:39:32 -0700
+Processing by PagesController#about as HTML
+  Rendering pages/about.html.haml within layouts/application
+  Rendered pages/about.html.haml within layouts/application (1.9ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+Completed 200 OK in 89ms (Views: 87.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-08-19 15:39:34 -0700
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.haml within layouts/application
+  Rendered pages/home.html.haml within layouts/application (3.4ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+Completed 200 OK in 119ms (Views: 115.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for ::1 at 2016-08-19 15:39:38 -0700
+Processing by PagesController#about as HTML
+  Rendering pages/about.html.haml within layouts/application
+  Rendered pages/about.html.haml within layouts/application (1.3ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+Completed 200 OK in 109ms (Views: 106.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-08-19 15:39:40 -0700
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.haml within layouts/application
+  Rendered pages/home.html.haml within layouts/application (2.9ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+Completed 200 OK in 108ms (Views: 104.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-08-19 15:41:56 -0700
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.haml within layouts/application
+  Rendered pages/home.html.haml within layouts/application (1.5ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+Completed 200 OK in 101ms (Views: 98.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-08-19 15:42:13 -0700
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.haml within layouts/application
+  Rendered pages/home.html.haml within layouts/application (1.7ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+Completed 200 OK in 81ms (Views: 78.0ms | ActiveRecord: 0.0ms)
+
+
